@@ -4,7 +4,7 @@ import {
   ShoppingOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Card, Space, Statistic, Typography } from "antd";
+import { Card, Space, Statistic, Table, Typography } from "antd";
 import React from "react";
 import { useGetAllCartsQuery } from "../../redux/services/cartApi";
 
@@ -15,7 +15,7 @@ const Dashboard = () => {
   return (
     <div>
       <Typography.Title level={7}>Dashboard</Typography.Title>
-      <Space direction="horizontal">
+      <Space >
         <DashboardCard
           icon={
             <ShoppingCartOutlined
@@ -77,6 +77,9 @@ const Dashboard = () => {
           value={12345}
         />
       </Space>
+      {/* <Space > */}
+        <RecentOrders/>
+      {/* </Space> */}
     </div>
   );
 };
@@ -91,4 +94,28 @@ const DashboardCard = ({ title, value, icon }) => {
     </Card>
   );
 };
+
+const RecentOrders = ({})=>{
+  return(
+    <Space>
+    <Table
+    columns={[
+      {
+        title:'Title',
+        dataIndex:'title'
+      },
+      {
+        title:'Quantity',
+        dataIndex:'Quantity'
+      },
+      {
+        title:'Price',
+        dataIndex:'discountedPrice'
+      },
+    ]}
+    > 
+    </Table>
+    </Space>
+  )
+}
 export default Dashboard;
