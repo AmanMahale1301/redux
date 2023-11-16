@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter ,Routes ,Route} from 'react-router-dom'
+import {Routes ,Route} from 'react-router-dom'
 import Dashboard from '../../Pages/Dashboard/Dashboard'
 import Inventory from '../../Pages/Inventory/Inventory'
 import Orders from '../../Pages/Orders/Orders'

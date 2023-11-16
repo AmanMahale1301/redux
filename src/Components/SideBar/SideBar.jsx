@@ -5,10 +5,17 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
-import React from "react";
-import { useNavigate } from "react-router";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router";
 
 const SideBar = () => {
+  const location = useLocation();
+  const [selectedKeys, setSelectedKeys] = useState("/");
+  useEffect(() => {
+    const pathName = location.pathname;
+    setSelectedKeys(pathName);
+  }, [location.pathname]);
+
   const navigate = useNavigate();
 
   const handleNavigation = (e) => {
@@ -18,6 +25,7 @@ const SideBar = () => {
   return (
     <div className="sidebar">
       <Menu
+        selectedKeys={[selectedKeys]}
         onClick={(e) => handleNavigation(e)}
         items={[
           {
