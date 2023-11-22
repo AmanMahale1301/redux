@@ -21,7 +21,10 @@ const Dashboard = () => {
     limit: 10,
     skip: 0,
   });
-  const { data: products } = useGetLimitedProductsQuery({ limit: 10, skip: 0 });
+  const { data: products } = useGetLimitedProductsQuery({
+    limit: 10,
+    skip: 0,
+  });
   console.log(order);
   console.log(users);
   console.log(products);
@@ -43,7 +46,7 @@ const Dashboard = () => {
               />
             }
             title={"Orders"}
-            value={order.total}
+            value={order?.total}
           />
           <DashboardCard
             icon={
@@ -58,7 +61,7 @@ const Dashboard = () => {
               />
             }
             title={"Inventory"}
-            value={products.total}
+            value={products?.total}
           />
           <DashboardCard
             icon={
@@ -73,7 +76,7 @@ const Dashboard = () => {
               />
             }
             title={"Customer"}
-            value={users.total}
+            value={users?.total}
           />
           <DashboardCard
             icon={
@@ -88,7 +91,7 @@ const Dashboard = () => {
               />
             }
             title={"Revenue"}
-            value={order.discountedTotal}
+            value={order?.discountedTotal}
           />
         </Space>
         <Space>
